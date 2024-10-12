@@ -1,0 +1,14 @@
+{
+    "role": "user",
+    "name": "Alice",
+    "age": 25,
+    "cars": [
+        {
+            "type": "car",
+            "fuel": "gasoline",
+            "brand": "Toyota",
+            "model": "Corolla",
+            "year": 2020
+        }
+    ]
+}

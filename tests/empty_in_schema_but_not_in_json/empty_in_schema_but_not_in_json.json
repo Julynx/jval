@@ -1,0 +1,5 @@
+{
+    "role": "user",
+    "name": "Alice",
+    "cars": ["kia", "bmw"]
+}

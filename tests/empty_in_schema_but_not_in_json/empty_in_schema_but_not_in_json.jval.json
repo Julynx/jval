@@ -1,0 +1,7 @@
+{
+    "role": "user",
+    "?source": "google",
+    "?_phone": "123456789",
+    "*name": "<str>",
+    "*cars": []
+}

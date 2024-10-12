@@ -1,0 +1,1 @@
+Validation error at 'cars[0]': extra key not defined in schema for key 'extra_field'

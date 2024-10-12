@@ -1,0 +1,12 @@
+{
+    "role": "user",
+    "name": "Alice",
+    "cars": [
+        {
+            "type": "car",
+            "brand": "Toyota",
+            "model": "Corolla",
+            "year": "two thousand twenty"
+        }
+    ]
+}

@@ -1,0 +1,1 @@
+Validation error at 'cars[0].year': unknown type <year> in schema for key 'year'

@@ -1,0 +1,13 @@
+{
+    "role": "user",
+    "name": "Alice",
+    "cars": [
+        {
+            "type": "car",
+            "brand": "Toyota",
+            "model": "Corolla",
+            "year": 2020,
+            "extra_field": "should not be here"
+        }
+    ]
+}

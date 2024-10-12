@@ -1,0 +1,1 @@
+Validation error at 'cars[0].properties[0].type': missing value for key 'type'

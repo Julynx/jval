@@ -1,0 +1,22 @@
+{
+    "role": "user",
+    "?source": "google",
+    "?_phone": "123456789",
+    "*name": "<str>",
+    "*cars": [
+        {
+            "type": "car",
+            "*brand": "<str>",
+            "*model": "<str>",
+            "*year": "<year>",
+            "?*properties": [
+                {
+                    "type": "property",
+                    "*city": "<str>",
+                    "*street": "<str>",
+                    "?*valued_at": "<int>"
+                }
+            ]
+        }
+    ]
+}

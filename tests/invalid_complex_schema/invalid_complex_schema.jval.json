@@ -1,0 +1,58 @@
+{
+    "role": "user",
+    "?source": "google",
+    "?*phone": "<str>",
+    "*name": "<str>",
+    "*cars": [
+        {
+            "type": "car",
+            "*brand": "<str>",
+            "*model": "<str>",
+            "*year": "<int>",
+            "?*properties": [
+                {
+                    "type": "property",
+                    "*city": "<str>",
+                    "*street": "<str>",
+                    "?*valued_at": "<int>",
+                    "?*owners": [
+                        {
+                            "type": "owner",
+                            "*name": "<str>",
+                            "*ownership_date": "<str>",
+                            "?*details": {
+                                "*marital_status": "<str>",
+                                "*pets": [
+                                    "<str>"
+                                ],
+                                "?*children": [
+                                    {
+                                        "type": "child",
+                                        "*name": "<str>",
+                                        "?*birth_date": "<str>"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "*transactions": [
+        {
+            "type": "transaction",
+            "*date": "<str>",
+            "*amount": "<float>",
+            "*currency": "<str>",
+            "?description": "Car purchase",
+            "?related_cars": [
+                {
+                    "type": "related_car",
+                    "*brand": "<str>",
+                    "*model": "<str>"
+                }
+            ]
+        }
+    ]
+}

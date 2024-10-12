@@ -1,0 +1,19 @@
+{
+    "role": "user",
+    "phone": "123456789",
+    "name": "Alice",
+    "cars": [
+        {
+            "type": "car",
+            "brand": "Toyota",
+            "model": "Corolla",
+            "year": 2020
+        },
+        {
+            "type": "car",
+            "brand": "Toyota",
+            "model": "Corolla",
+            "year": 2020
+        }
+    ]
+}

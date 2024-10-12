@@ -1,0 +1,41 @@
+{
+    "role": "user",
+    "name": "Liam",
+    "cars": [
+        {
+            "type": "car",
+            "brand": "Honda",
+            "model": "Accord",
+            "year": "two thousand twenty",
+            "properties": [
+                {
+                    "type": "property",
+                    "city": "Los Angeles",
+                    "street": "Sunset Blvd",
+                    "owners": [
+                        {
+                            "type": "owner",
+                            "name": "Jane Smith",
+                            "ownership_date": "2021-05-10"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "transactions": [
+        {
+            "type": "transaction",
+            "date": "2023-09-30",
+            "amount": 25000.0,
+            "currency": "USD",
+            "related_cars": [
+                {
+                    "type": "related_car",
+                    "brand": "Honda",
+                    "model": "Accord"
+                }
+            ]
+        }
+    ]
+}

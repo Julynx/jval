@@ -1,0 +1,13 @@
+{
+    "role": "user",
+    "source": "google",
+    "name": "Alice",
+    "cars": [
+        {
+            "type": "car",
+            "brand": "Toyota",
+            "model": "Corolla",
+            "year": 2020
+        }
+    ]
+}
