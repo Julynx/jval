@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "jval"
+version = "0.1.0"
+description = "JSON validation library"
+authors = ["Julynx"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+[tool.poetry.scripts]
+jval = "jval.__main__:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
