@@ -56,18 +56,18 @@ After installing the package with `pip install jval` you can either use it as a 
 
 ### Command-line usage
 
-```bash
+```
 usage: jval [-h] [--drop-extra-keys] json_path jval_path
 
 Validate JSON data against a JVAL schema.
 
 Positional arguments:
-  json_path          Path to the JSON file to validate
-  jval_path          Path to the JVAL schema file
+  json_path          Path to the JSON file to validate
+  jval_path          Path to the JVAL schema file
 
 Options:
-  -h, --help         Show this help message and exit
-  --drop-extra-keys  Drop extra keys in the JSON data that are not defined in the JVAL schema
+  -h, --help         Show this help message and exit
+  --drop-extra-keys  Drop extra keys in the JSON data that are not defined in the JVAL schema
 ```
 
 ### Python module usage
@@ -76,25 +76,25 @@ Options:
 from jval import validate
 
 schema = {
-    "*name": "<str>",
-    "?*age": "<int>",
-    "?_has_pets": False,
-    "?*properties": [
- {
-        "*name": "<str>",
-        "*address": "<str>"
- }
- ]
+    "*name": "<str>",
+    "?*age": "<int>",
+    "?_has_pets": False,
+    "?*properties": [
+        {
+            "*name": "<str>",
+            "*address": "<str>"
+        }
+    ]
 }
 
 data = {
-    "name": "Alice",
-    "properties": [
- {
-        "name": "Long Island Apartment",
-        "address": "1234 Long Island St."
- }
- ]
+    "name": "Alice",
+    "properties": [
+        {
+            "name": "Long Island Apartment",
+            "address": "1234 Long Island St."
+        }
+    ]
 }
 
 validated_data = validate(data, schema)
@@ -105,13 +105,13 @@ Output:
 
 ```python
 {
-    "name": "Alice",
-    "has_pets": False,
-    "properties": [
- {
-        "name": "Long Island Apartment",
-        "address": "1234 Long Island St."
- }
- ]
+    "name": "Alice",
+    "has_pets": False,
+    "properties": [
+        {
+            "name": "Long Island Apartment",
+            "address": "1234 Long Island St."
+        }
+    ]
 }
 ```
