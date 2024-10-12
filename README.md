@@ -16,26 +16,26 @@ JVAL...
 
 ## A JVAL Schema Example
 
-```js
+```python
 {
     "version": "1.0",
-    // Expect a "version" key with a value of "1.0"
+    # Expect a "version" key with a value of "1.0"
 
     "*name": "<str>",
-    // Expect a "name" key with a value of type string
+    # Expect a "name" key with a value of type string
 
     "?compression": "7zip",
-    // Optional "compression" key. Must have a value of "7zip" if present.
+    # Optional "compression" key. Must have a value of "7zip" if present.
 
     "?*dependencies": ["<str>"],
-    // Optional "dependencies" key. Must be a list of strings if present.
+    # Optional "dependencies" key. Must be a list of strings if present.
 
     "?_visibility": "private",
-    // Optional "visibility" key. Assume a default value of "private" if not present.
-    // Must be a value of type string if present. (Infers type from default value).
+    # Optional "visibility" key. Assume a default value of "private" if not present.
+    # Must be a value of type string if present. (Infers type from default value).
 
     "*addresses": [
-    // Type requirements can be as complex or simple as you need them to be.
+    # Type requirements can be as complex or simple as you need them to be.
         {
             "*street": "<str>",
             "*number": "<int>",
