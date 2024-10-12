@@ -61,7 +61,7 @@ def validate(
         title = urllib.parse.quote(title)
 
         body = (
-            f"**Traceback:**\n{traceback.format_exc()}\n\n"
+            f"**Traceback:**\n```\n{traceback.format_exc()}```\n\n"
             "-- If possible, please include the JSON data and JVAL schema here. --\n"
         )
 
