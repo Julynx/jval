@@ -1,9 +1,11 @@
 [tool.poetry]
 name = "jval"
-version = "0.1.0"
-description = "JSON validation library"
-authors = ["Julynx"]
+version = "0.8.0"
+description = "Structural and type validation of JSON objects"
+authors = ["Julio Cabria <juliocabria@tutanota.com>"]
+license = "GPL-2.0-only"
 readme = "README.md"
+homepage = "https://github.com/Julynx/jval"
 
 [tool.poetry.dependencies]
 python = "^3.12"
