@@ -16,7 +16,7 @@ JVAL...
 
 ## A JVAL Schema Example
 
-```json
+```js
 {
     "version": "1.0",
     // Expect a "version" key with a value of "1.0"
