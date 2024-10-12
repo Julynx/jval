@@ -1,7 +1,7 @@
 # JVAL - JSON Validation Language - Python Module
 
 JVAL allows for structural and type validation of JSON objects.
-This project defines the JVAL specification and presents a sample implementation in Python.
+This project defines the [JVAL specification](SPEC.md) and presents a sample implementation in Python.
 
 ## Features
 
