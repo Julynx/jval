@@ -40,13 +40,27 @@ def _validate(
     Returns:
         Validated JSON data.
     """
+    if not jval_schema:
+        if json_dict:
+            raise_error(
+                __context,
+                "dict mismatch: schema expects an empty dict but value is not empty",
+                __context,
+            )
+        return {}
+
     validated_data = {}
 
     for schema_key, schema_value in jval_schema.items():
         clean_key = get_clean_key(schema_key)
         actual_value = json_dict.get(clean_key, NotPresent)
         current_context = f"{__context}.{clean_key}" if __context else clean_key
-        schema_value = None if schema_value in ({}, []) else schema_value
+        schema_value = (
+            None
+            if schema_key.lstrip(SYMBOL_OPTIONAL).startswith(SYMBOL_TYPED)
+            and schema_value in ({}, [])
+            else schema_value
+        )
 
         # Recursively validate nested objects
         if isinstance(actual_value, dict) and isinstance(schema_value, dict):
@@ -257,7 +271,7 @@ def _validate_list(
         if actual_values:
             raise_error(
                 get_clean_key(key),
-                "list mismatch: schema expects an empty list but JSON is not empty",
+                "list mismatch: schema expects an empty list but value is not empty",
                 current_context,
             )
         return
