@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "jval"
-version = "1.0.1"
+version = "1.0.2"
 description = "Structural and type validation of JSON objects"
 authors = ["Julio Cabria <juliocabria@tutanota.com>"]
 license = "GPL-2.0-only"

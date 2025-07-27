@@ -165,7 +165,7 @@ def _validate_type(
 
     # Check if the actual value is of the expected type
     expected_type = type_dict[schema_value]
-    if expected_type in (int, float) and isinstance(actual_value, (int, float)):
+    if expected_type == float and isinstance(actual_value, (int, float)):
         return
     if not isinstance(actual_value, expected_type):
         raise_error(
