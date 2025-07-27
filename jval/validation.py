@@ -74,9 +74,21 @@ def _validate(
 
             # Actual value exists
             if actual_value is not NotPresent:
+                # Value is a type definition
+                if (
+                    isinstance(schema_value, str)
+                    and schema_value.startswith(SYMBOL_TYPE_START)
+                    and schema_value.endswith(SYMBOL_TYPE_END)
+                ):
+                    _validate_type(
+                        schema_key,
+                        schema_value,
+                        actual_value,
+                        current_context,
+                    )
 
                 # Spec key starts with an asterisk (type definition)
-                if schema_key.startswith(f"{SYMBOL_TYPED}"):
+                elif schema_key.startswith(f"{SYMBOL_TYPED}"):
                     _validate_type(
                         schema_key,
                         schema_value,
@@ -144,27 +156,34 @@ def _validate_type(
 ):
     if not isinstance(schema_value, str):
         return
+    
+    schema_type = (schema_value
+                   .removeprefix(SYMBOL_TYPE_START)
+                   .removesuffix(SYMBOL_TYPE_END))
+    is_optional = schema_type.startswith("?")
+    clean_schema_type = schema_type.removeprefix("?")
 
     type_dict = {
-        f"{SYMBOL_TYPE_START}str{SYMBOL_TYPE_END}": str,
-        f"{SYMBOL_TYPE_START}int{SYMBOL_TYPE_END}": int,
-        f"{SYMBOL_TYPE_START}bool{SYMBOL_TYPE_END}": bool,
-        f"{SYMBOL_TYPE_START}float{SYMBOL_TYPE_END}": float,
+        "str": str,
+        "int": int,
+        "bool": bool,
+        "float": float,
     }
 
     # Unknown type
-    if schema_value.startswith(f"{SYMBOL_TYPE_START}") and schema_value.endswith(
-        f"{SYMBOL_TYPE_END}"
-    ):
-        if schema_value not in type_dict:
-            raise_error(
-                get_clean_key(key),
-                f"unknown type {schema_value} in schema",
-                current_context,
-            )
+    if clean_schema_type not in type_dict:
+        raise_error(
+            get_clean_key(key),
+            f"unknown type {schema_value} in schema",
+            current_context,
+        )
+
+    # Optional type
+    if is_optional and actual_value is None:
+        return
 
     # Check if the actual value is of the expected type
-    expected_type = type_dict[schema_value]
+    expected_type = type_dict[clean_schema_type]
     if expected_type == float and isinstance(actual_value, (int, float)):
         return
     if not isinstance(actual_value, expected_type):
