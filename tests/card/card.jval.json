@@ -1,0 +1,6 @@
+{
+    "*width": "<int>",
+    "*height": "<int>",
+    "?*background_color": ["<int>"],
+    "*elements": []
+}

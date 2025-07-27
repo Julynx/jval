@@ -1,0 +1,156 @@
+{
+    "width": 1050,
+    "height": 750,
+    "background_color": [
+        30,
+        30,
+        30,
+        255
+    ],
+    "elements": [
+        {
+            "id": "image",
+            "type": "image",
+            "path": "art\\063y.png",
+            "filters": {
+                "crop_top": 30,
+                "crop_bottom": 30,
+                "crop_left": -120,
+                "crop_right": 0,
+                "resize": [
+                    null,
+                    675
+                ]
+            },
+            "position": [
+                0,
+                36
+            ]
+        },
+        {
+            "id": "text-background",
+            "type": "rectangle",
+            "size": [
+                650,
+                750
+            ],
+            "position": [
+                400,
+                0
+            ],
+            "color": [
+                30,
+                30,
+                30,
+                255
+            ]
+        },
+        {
+            "id": "name",
+            "type": "text",
+            "text": "Prisoner",
+            "font_path": "resources/noto_sans_jp.ttf",
+            "font_size": 64,
+            "font_variant": "Bold",
+            "line_spacing": 10,
+            "width": 500,
+            "align": "left",
+            "position": [
+                450,
+                100
+            ],
+            "color": [
+                255,
+                255,
+                255
+            ],
+            "anchor": "top-left"
+        },
+        {
+            "id": "subtitle",
+            "type": "text",
+            "text": "063y",
+            "font_path": "resources/noto_sans_jp.ttf",
+            "font_size": 48,
+            "font_variant": "Thin",
+            "line_spacing": 10,
+            "width": 500,
+            "align": "left",
+            "position": [
+                2,
+                30
+            ],
+            "relative_to": [
+                "name",
+                "bottom-left"
+            ],
+            "color": [
+                140,
+                140,
+                140
+            ],
+            "anchor": "top-left"
+        },
+        {
+            "id": "description",
+            "type": "text",
+            "text": "A quiet man who is forced to fight alongside his wife against monstrous flowers who claimed the life of their son. Lives for revenge.",
+            "font_path": "resources/noto_sans_jp.ttf",
+            "font_size": 32,
+            "font_variant": "Regular",
+            "line_spacing": 12,
+            "width": 500,
+            "align": "left",
+            "position": [
+                0,
+                80
+            ],
+            "relative_to": [
+                "subtitle",
+                "bottom-left"
+            ],
+            "color": [
+                255,
+                255,
+                255
+            ],
+            "anchor": "top-left"
+        },
+        {
+            "id": "thin-border",
+            "type": "rectangle",
+            "size": [
+                1010,
+                710
+            ],
+            "outline_color": [
+                255,
+                255,
+                255
+            ],
+            "width": 2,
+            "position": [
+                20,
+                20
+            ]
+        },
+        {
+            "id": "thick-border",
+            "type": "rectangle",
+            "size": [
+                986,
+                686
+            ],
+            "outline_color": [
+                255,
+                255,
+                255
+            ],
+            "width": 4,
+            "position": [
+                32,
+                32
+            ]
+        }
+    ]
+}
