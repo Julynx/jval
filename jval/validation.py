@@ -74,21 +74,9 @@ def _validate(
 
             # Actual value exists
             if actual_value is not NotPresent:
-                # Value is a type definition
-                if (
-                    isinstance(schema_value, str)
-                    and schema_value.startswith(SYMBOL_TYPE_START)
-                    and schema_value.endswith(SYMBOL_TYPE_END)
-                ):
-                    _validate_type(
-                        schema_key,
-                        schema_value,
-                        actual_value,
-                        current_context,
-                    )
 
                 # Spec key starts with an asterisk (type definition)
-                elif schema_key.startswith(f"{SYMBOL_TYPED}"):
+                if schema_key.startswith(f"{SYMBOL_TYPED}"):
                     _validate_type(
                         schema_key,
                         schema_value,
@@ -199,6 +187,14 @@ def _validate_optional(
     current_context: str,
     drop_extra_keys: bool = False,
 ):
+    # Spec is a type definition
+    if (
+        isinstance(schema_value, str)
+        and schema_value.startswith(SYMBOL_TYPE_START)
+        and schema_value.endswith(SYMBOL_TYPE_END)
+    ):
+        _validate_type(key, schema_value, actual_value, current_context)
+        return
 
     # Spec defines the type
     if key.startswith(f"{SYMBOL_OPTIONAL}{SYMBOL_TYPED}"):
