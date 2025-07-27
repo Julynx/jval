@@ -192,9 +192,11 @@ def _validate_optional(
 
         # Type is defined as a list
         elif isinstance(schema_value, list):
+            if not isinstance(actual_value, list):
+                raise_error(get_clean_key(key), "expected a list", current_context)
             _validate_list(
                 key,
-                [schema_value],
+                schema_value,
                 actual_value,
                 current_context,
                 drop_extra_keys=drop_extra_keys,
@@ -234,16 +236,26 @@ def _validate_list(
     current_context: str,
     drop_extra_keys: bool = False,
 ):
+    if not schema_values:
+        if actual_values:
+            raise_error(
+                get_clean_key(key),
+                "list mismatch: schema expects an empty list but JSON is not empty",
+                current_context,
+            )
+        return
+
     # List of literals
     if isinstance(schema_values[0], (str, float, int)):
+        is_typed_list = key.lstrip(SYMBOL_OPTIONAL).startswith(SYMBOL_TYPED)
+        is_type_definition = (
+            isinstance(schema_values[0], str)
+            and schema_values[0].startswith(SYMBOL_TYPE_START)
+            and schema_values[0].endswith(SYMBOL_TYPE_END)
+        )
 
         # Literal represents a type definition
-        if (
-            key.startswith(f"{SYMBOL_TYPED}")
-            and isinstance(schema_values[0], str)
-            and schema_values[0].startswith(f"{SYMBOL_TYPE_START}")
-            and schema_values[0].endswith(f"{SYMBOL_TYPE_END}")
-        ):
+        if is_typed_list and is_type_definition:
             for index, actual_value in enumerate(actual_values):
                 new_context = f"{current_context}[{index}]"
                 _validate_type(key, schema_values[0], actual_value, new_context)
